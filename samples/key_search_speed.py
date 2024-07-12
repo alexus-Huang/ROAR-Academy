@@ -4,6 +4,7 @@
 ##
 ## (c) Copyright 2020. Intelligent Racing Inc. Not permitted for commercial use
 
+
 import os
 import random
 import time
@@ -18,7 +19,7 @@ print('Reading I/O file ... ', end = ' ')
 try:
     # Get the script path
 
-    path = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.dirname(os.path.abspath(__file__)) # Always write the full path
 
     # Open the file for read
     f_handle = open(path+'/'+file_name,"r")
