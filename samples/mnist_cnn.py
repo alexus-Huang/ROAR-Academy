@@ -1,15 +1,10 @@
-## This is course material for Introduction to Modern Artificial Intelligence
-## Example code: mnist_cnn.py
-## Author: Allen Y. Yang
-##
-## (c) Copyright 2020. Intelligent Racing Inc. Not permitted for commercial use
-
 import keras
 from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten
 from keras.layers import Conv2D, MaxPooling2D
 import matplotlib.pyplot as plt
+import tensorflow as tf
 
 batch_size = 128
 num_classes = 10
@@ -45,8 +40,8 @@ print(x_train.shape[0], 'train samples')
 print(x_test.shape[0], 'test samples')
 
 # convert class vectors to binary class matrices
-y_train = keras.utils.np_utils.to_categorical(y_train, num_classes)
-y_test = keras.utils.np_utils.to_categorical(y_test, num_classes)
+y_train = tf.keras.utils.to_categorical(y_train, num_classes)
+y_test = tf.keras.utils.to_categorical(y_test, num_classes)
 
 # CNN is created also using Sequential model
 model = Sequential()

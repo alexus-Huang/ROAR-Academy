@@ -1,8 +1,3 @@
-## This is course material for Introduction to Modern Artificial Intelligence
-## Example code: mnist_mlp.py
-## Author: Allen Y. Yang
-##
-## (c) Copyright 2020. Intelligent Racing Inc. Not permitted for commercial use
 import keras
 import tensorflow as tf
 from keras.datasets import mnist
@@ -44,14 +39,14 @@ print(x_train.shape[0], 'train samples')
 print(x_test.shape[0], 'test samples')
 
 # convert class vectors to binary class matrices
-y_train = keras.utils.np_utils.to_categorical(y_train, num_classes)
-y_test = keras.utils.np_utils.to_categorical(y_test, num_classes)
+y_train = tf.keras.utils.to_categorical(y_train, num_classes)
+y_test = tf.keras.utils.to_categorical(y_test, num_classes)
 
 model = Sequential()
 model.add(Dense(800, input_shape=input_shape, activation='relu'))
 model.add(Dense(800, activation='relu'))
 model.add(Dense(128, activation='relu'))
-model.add(Dense(num_classes, activation='softmax' ))
+model.add(Dense(num_classes, activation='softmax'))
 
 opt = tf.keras.optimizers.SGD(learning_rate=0.1)
 model.compile(loss='mean_squared_error',
